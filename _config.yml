@@ -20,9 +20,9 @@
 
 title: Nocode Tech Stacker
 email: ceo@nocodetechstacker.com
-description: >- # this means to ignore newlines until "baseurl:"
-  저는 다양한 노코드 기술을 기반으로, 개인 및 기업의 비즈니스 문제를 효과적으로 해결하는 전문가입니다.
-  생성형 AI시대에 따라, 코드 개발 역시 프롬프팅을 통해 가능해져 가고 있습니다.
+description: >- 
+  노코드 기술과 AI를 활용한 개발 경험을 공유하는 블로그입니다.
+  프롬프트 엔지니어링과 AI 에이전트 활용에 대해 다룹니다.
 
   '프롬프팅'을 포함하여 기존보다 더 확장된 '노코드'로 해석하고, 스스로의 역량을 키우고 있습니다.
   최근의 주요 관심사는 AI '에이전트'를 활용한 비즈니스 모델 확장 및 활용입니다.
@@ -33,6 +33,9 @@ github_username: nocodetechstacker
 
 # Build settings
 theme: minima
+sass:
+  quiet_deps: true
+  style: compressed
 plugins:
   - jekyll-feed
 
