@@ -1,0 +1,13 @@
+<div class="mermaid">
+sequenceDiagram
+    participant D as 개발자
+    participant T as 테스트러너
+    participant L as 로거
+    participant A as 분석기
+    
+    D->>T: 테스트 실행
+    T->>L: 로그 수집
+    L->>A: 로그 분석
+    A-->>D: 문제 보고
+    D->>T: 수정 검증
+</div> 

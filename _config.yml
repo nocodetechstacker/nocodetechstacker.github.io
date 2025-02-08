@@ -20,6 +20,7 @@
 
 title: Nocode Tech Stacker
 email: ceo@nocodetechstacker.com
+google_analytics: G-XXXXXXXXXX  # Google Analytics 측정 ID
 description: >- 
   노코드 기술과 AI를 활용한 개발 경험을 공유하는 블로그입니다.
   프롬프트 엔지니어링과 AI 에이전트 활용에 대해 다룹니다.
@@ -38,6 +39,7 @@ sass:
   style: compressed
 plugins:
   - jekyll-feed
+  - jekyll-mermaid
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -46,15 +48,49 @@ plugins:
 #
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+exclude:
+  - visits
+  - local-storage.js
+  - livereload.js
+
+# Category settings
+category_list:
+  nocode-tools:
+    name: "노코드 도구"
+    description: "n8n, Make, Zapier 등 노코드 자동화 도구 활용"
+  ai-tools:
+    name: "AI 도구"
+    description: "LangChain, AutoGen 등 AI 개발 도구와 프레임워크"
+  agent-dev:
+    name: "AI 에이전트"
+    description: "AI 에이전트 개발과 구현 사례"
+  integration:
+    name: "통합 & 자동화"
+    description: "다양한 도구들의 통합과 자동화 전략"
+  tutorials:
+    name: "튜토리얼"
+    description: "단계별 가이드와 실습"
+
+kramdown:
+  syntax_highlighter: rouge
+  parse_block_html: true
+
+# Default front matter
+defaults:
+  -
+    scope:
+      path: "" # 모든 파일에 적용
+    values:
+      layout: "default"
+
+mermaid:
+  src: 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js'
+
+# Default settings
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"

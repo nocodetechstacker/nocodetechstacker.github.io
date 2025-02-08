@@ -1,0 +1,52 @@
+<footer class="site-footer">
+  <div class="wrapper">
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  background: #2c3e50;
+  color: white;
+  padding: 3rem 0 1rem;
+  margin: 0;
+  width: 100%;
+}
+
+.footer-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  margin: 0 20px 2rem;
+}
+
+.footer-col h3 {
+  color: white;
+  margin: 0 0 1rem;
+  font-size: 1.2em;
+}
+
+.footer-col a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  margin: 0 20px;
+  text-align: center;
+  font-size: 0.9em;
+  color: rgba(255,255,255,0.7);
+}
+</style> 

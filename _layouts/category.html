@@ -1,0 +1,76 @@
+---
+layout: default
+---
+
+<div class="category-header">
+    <h1>{{ page.title }}</h1>
+    {% assign category_info = site.category_list[page.category] %}
+    <p class="category-description">{{ category_info.description }}</p>
+</div>
+
+<div class="post-list">
+    {% assign posts = site.posts | where: "categories", page.category %}
+    {% for post in posts %}
+    <article class="post-item">
+        <h2>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </h2>
+        <p class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</p>
+        {% if post.description %}
+        <p class="post-description">{{ post.description }}</p>
+        {% endif %}
+    </article>
+    {% endfor %}
+</div>
+
+<style>
+.category-header {
+    background: #2c3e50;
+    color: white;
+    padding: 40px 20px;
+    margin: -30px -20px 30px;
+    text-align: center;
+}
+
+.category-header h1 {
+    color: white;
+    margin: 0 0 10px;
+}
+
+.category-description {
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.post-item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.post-item:hover {
+    transform: translateY(-2px);
+}
+
+.post-item h2 {
+    margin: 0 0 10px;
+}
+
+.post-item h2 a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.post-item h2 a:hover {
+    color: #3498db;
+}
+
+.post-description {
+    color: #666;
+    margin-top: 0.5em;
+}
+</style> 

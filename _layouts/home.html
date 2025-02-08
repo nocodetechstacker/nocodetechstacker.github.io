@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="home">
+  <h2>{{ page.title }}</h2>
+  
+  {{ content }}
+
+  <div class="post-list">
+    {% for post in site.posts %}
+      <article class="post-list-item">
+        <a href="{{ post.url | relative_url }}" class="post-list-link">
+          <div class="post-list-header">
+            <h3 class="post-list-title">{{ post.title }}</h3>
+          </div>
+          <div class="post-list-meta">
+            {{ post.date | date: "%Y년 %m월 %d일" }}
+          </div>
+          {% if post.description %}
+          <p class="post-list-description">{{ post.description }}</p>
+          {% endif %}
+          {% if post.categories %}
+          <div class="post-categories">
+            {% for category in post.categories %}
+            <span class="post-category">{{ category }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</div> 

@@ -1,0 +1,47 @@
+<div class="visitor-counter">
+    <h3>방문자 통계</h3>
+    <script async src="https://api.countapi.xyz/hit/nocodetechstacker.github.io/visits"></script>
+    <p>
+        <i class="fas fa-users"></i> 총 방문자 수: <span id="visits">집계중...</span>
+    </p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('https://api.countapi.xyz/get/nocodetechstacker.github.io/visits')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('visits').innerText = data.value.toLocaleString();
+        })
+        .catch(error => {
+            console.error('방문자 수 로딩 실패:', error);
+            document.getElementById('visits').innerText = '확인 중...';
+        });
+});
+</script>
+
+<style>
+.visitor-counter {
+    padding: 15px;
+    color: white;
+}
+
+.visitor-counter h3 {
+    color: white;
+    margin: 0 0 0.5rem;
+    font-size: 1.2em;
+}
+
+.visitor-counter p {
+    margin: 0;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#visits {
+    font-weight: bold;
+    color: #fff;
+}
+</style> 

@@ -1,0 +1,34 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.init({}, ".language-mermaid");
+  });
+</script>
+<style>
+.mermaid {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 20px 0;
+  text-align: center;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* 깜빡임 방지 */
+.page-content {
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+body {
+  opacity: 1 !important;
+  transition: none !important;
+}
+</style> 

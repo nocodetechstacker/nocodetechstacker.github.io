@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <style>
+    /* 초기 상태에서 페이지 콘텐츠만 숨김 */
+    .page-content {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    /* 로딩 완료 후 페이지 콘텐츠 표시 */
+    .page-content.loaded {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease;
+    }
+    
+    /* 헤더와 푸터는 즉시 표시 */
+    .site-header,
+    .site-footer {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* 헤더 스타일 */
+    .site-header {
+      background: #2c3e50;
+      padding: 1rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      width: 100%;
+      margin: 0;
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 40px;
+      box-sizing: border-box;
+      position: relative;
+      width: 100%;
+    }
+    
+    .site-title {
+      color: white;
+      font-size: 1.5em;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 40px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      display: block;
+    }
+    
+    .site-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .nav-link {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      line-height: 40px;  /* 수직 중앙 정렬 */
+      display: inline-block;
+    }
+    
+    .nav-link:hover {
+      color: white;
+    }
+    
+    /* wrapper 스타일 통일 */
+    .wrapper,
+    .header-content,
+    .page-content .wrapper,
+    .site-footer .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+    
+    /* 컨텐츠 영역 스타일 */
+    .page-content {
+      opacity: 0;
+      visibility: hidden;
+      padding: 30px 0;
+      background: #f8f9fa;
+    }
+    
+    .page-content.loaded {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #f8f9fa;
+    }
+    
+    .post-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+    }
+    
+    .post-item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+      padding: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .post-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .post-item h3 {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    
+    .post-item h3 a {
+      text-decoration: none;
+      color: #2c3e50;
+    }
+    
+    .post-item h3 a:hover {
+      color: #3498db;
+    }
+    
+    .post-meta {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .post-description {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .post-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .post-category {
+      background: #e9ecef;
+      color: #495057;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 0.85em;
+    }
+    
+    article {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    
+    h1, h2, h3 {
+      color: #2c3e50;
+      margin-top: 1.5em;
+    }
+    
+    code {
+      background: #f8f9fa;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    
+    pre code {
+      padding: 15px;
+      border-radius: 5px;
+      display: block;
+      overflow-x: auto;
+    }
+    
+    .language-mermaid {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .mermaid svg {
+      max-width: 100%;
+      height: auto !important;
+    }
+  </style>
+</head>
+<body>
+  {% include header.html %}
+  
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      {{ content }}
+    </div>
+  </main>
+
+  {% include footer.html %}
+  {% include mermaid.html %}
+  
+  <script>
+    // 페이지의 모든 리소스가 로드된 후 실행
+    window.addEventListener('load', function() {
+      document.querySelector('.page-content').classList.add('loaded');
+    });
+  </script>
+</body> 

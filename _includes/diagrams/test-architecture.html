@@ -1,0 +1,20 @@
+<div class="mermaid">
+graph TB
+    subgraph "테스트 계층"
+        A[단위 테스트] --> B[통합 테스트]
+        B --> C[시스템 테스트]
+        C --> D[인수 테스트]
+    end
+    
+    subgraph "테스트 유형"
+        E[기능 테스트] --> F[성능 테스트]
+        F --> G[보안 테스트]
+        G --> H[사용성 테스트]
+    end
+    
+    subgraph "자동화"
+        I[CI/CD] --> J[테스트 실행]
+        J --> K[결과 분석]
+        K --> L[보고서]
+    end
+</div> 
