@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jekyll로 GitHub 블로그 만들기 - 설치부터 배포까지"
+title:  "Jekyll로 GitHub 블로그 만들기:설치부터 배포"
 date:   2024-02-09 02:00:00 +0900
 categories: jekyll github-pages tutorial
 ---
