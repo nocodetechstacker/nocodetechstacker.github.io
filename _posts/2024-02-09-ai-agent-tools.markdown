@@ -261,4 +261,96 @@ text = generator("AI의 미래는", max_length=100)
 ```
 
 ### 4. FAISS (벡터 데이터베이스)
+```python
+import faiss
+import numpy as np
+
+# 벡터 데이터베이스 생성
+dimension = 128
+index = faiss.IndexFlatL2(dimension)
+
+# 벡터 추가
+vectors = np.random.random((1000, dimension)).astype('float32')
+index.add(vectors)
+
+# 유사도 검색
+query = np.random.random((1, dimension)).astype('float32')
+distances, indices = index.search(query, k=5)
 ```
+
+## 모니터링 도구
+
+### 1. Prometheus
+```yaml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'ai_agent'
+    static_configs:
+      - targets: ['localhost:8000']
+```
+
+### 2. Grafana 대시보드
+```json
+{
+  "dashboard": {
+    "panels": [
+      {
+        "title": "API 호출 빈도",
+        "type": "graph",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "rate(api_calls_total[5m])",
+            "legendFormat": "호출/분"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+## 보안 및 로깅
+
+### 1. 환경 변수 관리
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
+HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
+```
+
+### 2. 로깅 설정
+```python
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('agent.log'),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger('ai_agent')
+logger.info('에이전트 시스템 시작')
+```
+
+## 결론
+
+AI Agent 개발을 위한 다양한 도구들을 살펴보았습니다. 이러한 도구들을 적절히 조합하여 사용하면 효율적인 AI 시스템을 구축할 수 있습니다. 각 도구의 특성을 잘 이해하고 프로젝트의 요구사항에 맞게 선택하는 것이 중요합니다.
+
+## 참고 자료
+
+- [LangChain 공식 문서](https://python.langchain.com/docs/get_started/introduction)
+- [AutoGen GitHub](https://github.com/microsoft/autogen)
+- [Semantic Kernel 문서](https://learn.microsoft.com/semantic-kernel/overview/)
+- [OpenAI API 문서](https://platform.openai.com/docs/introduction)
+- [Hugging Face 문서](https://huggingface.co/docs)
