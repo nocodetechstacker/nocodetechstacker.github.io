@@ -18,12 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Nocode Tech Stacker
+email: ceo@nocodetechstacker.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  저는 다양한 노코드 기술을 기반으로, 개인 및 기업의 비즈니스 문제를 효과적으로 해결하는 전문가입니다.
+  생성형 AI시대에 따라, 코드 개발 역시 프롬프팅을 통해 가능해져 가고 있습니다.
+
+  '프롬프팅'을 포함하여 기존보다 더 확장된 '노코드'로 해석하고, 스스로의 역량을 키우고 있습니다.
+  최근의 주요 관심사는 AI '에이전트'를 활용한 비즈니스 모델 확장 및 활용입니다.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
