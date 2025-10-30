@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "n8n 시작하기: 실전 자동화 워크플로우 가이드"
-date: 2024-02-10 14:00:00 +0900
+date: 2025-10-30 14:00:00 +0900
 categories: [nocode-tools, tutorials]
 description: "n8n을 처음 시작하는 분들을 위한 실전 자동화 가이드입니다. 실제 사례를 통해 n8n의 기본 개념과 활용법을 배워봅시다."
 ---
