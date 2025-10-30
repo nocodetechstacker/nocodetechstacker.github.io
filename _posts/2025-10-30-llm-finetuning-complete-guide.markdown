@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "오픈소스 LLM 파인튜닝 완벽 가이드: 실전 예제로 배우기"
-date: 2024-02-11 14:00:00 +0900
+date: 2025-10-30 14:00:00 +0900
 categories: [ai, tutorials]
 description: "오픈소스 LLM을 파인튜닝하는 방법을 처음부터 끝까지 상세하게 다룹니다. LoRA, QLoRA 등 최신 기법과 실전 예제 코드를 포함합니다."
 ---
